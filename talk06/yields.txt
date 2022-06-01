@@ -1,0 +1,10 @@
+Data 2948$pm$54
+Pred. #oplus stat. 2865$pm$34
+WW#gamma 1.3$pm$0.1
+Nonprompt #font[12]{l} 1733.0$pm$16.4
+WW 81.3$pm$2.4
+VV 415.9$pm$2.9
+tW 48.3$pm$3.0
+DY 44.4$pm$13.4
+t#bar{t} 536.3$pm$26.2
+tZq 4.2$pm$0.1
