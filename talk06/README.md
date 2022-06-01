@@ -10,6 +10,7 @@ cd CMSSW_10_6_29/src
 cmsenv
 https://github.com/phy-guanzh/newtalk2.git
 cd newtalk2/talk06plot
+mkdir output-slimmed-rootfiles
 ```
 need to make sure that the samples path is correct
 
