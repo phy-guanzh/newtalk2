@@ -45,7 +45,8 @@ void loopPlot(int isBarrel,TString isChannel,std::string year) {
         if(year=="16pre") y="16";
         else y=year;
 //	vector<TString> pathToTrees = {"/home/pku/anying/cms/rootfiles/WWg/20"+y+"/"};
-	vector<TString> pathToTrees = {"../Common/rootfiles/"};
+	//vector<TString> pathToTrees = {"../Common/rootfiles/"};
+	vector<TString> pathToTrees = {"/eos/user/z/zguan/www/talk/"};
 	std::string outputDir = "./fig-output_"+year+"/";
 	RoccoR  rc;
         /// file for scale factors
@@ -291,9 +292,9 @@ int main() {
 //	loopPlot(1,"mm");
 ///	loopPlot(1,"emu");
 	loopPlot(2,"emu","18");
-	loopPlot(2,"emu","17");
-	loopPlot(2,"emu","16");
-	loopPlot(2,"emu","16pre");
+//	loopPlot(2,"emu","17");
+//	loopPlot(2,"emu","16");
+//	loopPlot(2,"emu","16pre");
 	return 0;
 }
 

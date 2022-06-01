@@ -1059,10 +1059,6 @@ void EDBRHistoMaker::Loop_SFs_mc(std::string outFileName,float luminosity,int is
 	TString y;
 	if(year=="16") y="16post";
 	else y=year;
-	TFile*f1 = new TFile("/home/pku/guanz/HLT/HLT_mva_less/results/HLTSF_20"+y+".root");
-	TH1D*h1 = (TH1D*)f1->Get("HLTSF_20"+y);
-	TH1D*h2 = (TH1D*)f1->Get("HLTSF_UP_ERR_20"+y);
-	TH1D*h3 = (TH1D*)f1->Get("HLTSF_DOWN_ERR_20"+y);
 
 	for (Long64_t jentry = 0; jentry < nentries; jentry++) {
 		float r1=gRandom->Rndm(jentry);
@@ -1146,12 +1142,11 @@ void EDBRHistoMaker::Loop_SFs_mc(std::string outFileName,float luminosity,int is
 		float l1,l2;
 		if(lep1pt>lep2pt){ l1=lep1pt;l2=lep2pt;}
 		else {l1=lep2pt;l2=lep1pt;}
-                HLT_SF=h1->GetBinContent(h1->FindBin(l1,l2));
 
                 if(filename.Contains("18")){L1PreFiringWeight_Nom=1;L1PreFiringWeight_Muon_Nom=1;}
                 if(filename.Contains("16") )
                         L1PreFiringWeight_Muon_Nom=1;
-		actualWeight = scalef*ele_id_scale*ele_reco_scale*muon_id_scale*muon_iso_scale*photon_id_scale*photon_veto_scale*puWeight*btag_weight_medium*L1PreFiringWeight_Muon_Nom*L1PreFiringWeight_Nom*HLT_SF;//mc
+		actualWeight = scalef*ele_id_scale*ele_reco_scale*muon_id_scale*muon_iso_scale*photon_id_scale*photon_veto_scale*puWeight*btag_weight_medium*L1PreFiringWeight_Muon_Nom*L1PreFiringWeight_Nom;//mc
 		if(filename.Contains("plj") || filename.Contains("fake")){
 			actualWeight = scalef;luminosity=1;
 		    //if (filename.Contains("fake") && lep1pt<40) actualWeight = scalef*0.90;
@@ -1223,7 +1218,6 @@ void EDBRHistoMaker::Loop_SFs_mc(std::string outFileName,float luminosity,int is
 
 
 	}
-	f1->Close();
 	cout << "after cut: " << numbe_out << "; actualweight" << actualWeight<<endl;
 	cout<< " total events: " << sum <<"; yields "<<sum*luminosity<<endl;
 	this->saveAllHistos(outFileName);
